@@ -62,6 +62,18 @@ E no `apps.json`:
 ]
 ```
 
+### Via Docker (Dokploy)
+
+**Adicionar ao compose existente do ERPNext:** use o override:
+
+```bash
+docker compose -f seu-compose.yml -f docker-compose.fiscal-override.yml up -d --build
+```
+
+No Dokploy, configure Compose Path: `compose.yml,docker-compose.fiscal-override.yml`
+
+Consulte [INSTALL_DOKPLOY.md](INSTALL_DOKPLOY.md) para mais opções.
+
 ## Configuração
 
 ### 1. Configuração Fiscal

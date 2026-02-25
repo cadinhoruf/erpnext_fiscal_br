@@ -1,0 +1,55 @@
+# Git
+.git
+.gitignore
+
+# Python
+__pycache__
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info
+*.egg
+.eggs
+*.manifest
+*.spec
+
+# Build / dist
+build/
+dist/
+*.egg-info/
+
+# Environments
+.env
+.venv
+venv/
+ENV/
+env/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docs e testes (não necessários no build)
+docs/
+*.md
+
+# Frappe/ERPNext local
+.bench
+sites/
+archived/
+logs/
+config/
+
+# Outros
+node_modules/
+htmlcov/
+.tox/
+.pytest_cache/
+.mypy_cache/

@@ -1,0 +1,45 @@
+# Override para adicionar erpnext_fiscal_br ao compose do ERPNext
+# Uso: docker compose -f seu-compose.yml -f docker-compose.fiscal-override.yml up -d
+#
+# Ou no Dokploy: adicione este arquivo como "Compose Override" ou
+# configure Compose Path como: docker-compose.yml,docker-compose.fiscal-override.yml
+
+x-fiscal-build: &fiscal_build
+  build:
+    context: .
+    dockerfile: Dockerfile
+  image: erpnext-fiscal-br:latest
+  pull_policy: never
+
+services:
+  backend:
+    <<: *fiscal_build
+
+  frontend:
+    <<: *fiscal_build
+
+  queue-default:
+    <<: *fiscal_build
+
+  queue-long:
+    <<: *fiscal_build
+
+  queue-short:
+    <<: *fiscal_build
+
+  scheduler:
+    <<: *fiscal_build
+
+  websocket:
+    <<: *fiscal_build
+
+  configurator:
+    <<: *fiscal_build
+
+  create-site:
+    <<: *fiscal_build
+    environment:
+      INSTALL_APP_ARGS: --install-app erpnext --install-app erpnext_fiscal_br
+
+  migration:
+    <<: *fiscal_build
